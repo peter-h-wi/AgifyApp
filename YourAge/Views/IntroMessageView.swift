@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// Used for top message on background
 struct IntroMessageView: View {
     let introMain1: String
     let introMain2: String
