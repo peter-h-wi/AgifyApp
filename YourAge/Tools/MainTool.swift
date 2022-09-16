@@ -22,7 +22,6 @@ class MainTool {
         if countryCode == "World" {
             return countryCode
         }
-        print(countryCode)
         let current = Locale(identifier: "en_US")
         return current.localizedString(forRegionCode: countryCode)
     }

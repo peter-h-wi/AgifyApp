@@ -7,37 +7,6 @@
 
 import SwiftUI
 
-struct ContainerView: View {
-    let height: Double
-    let width: Double
-
-    let rectangleRadius = 18.0
-    let circleRatio = 0.23
-    
-    let shadowRadius = 3.0
-    
-    var body: some View {
-        ZStack {
-            Rectangle()
-                .frame(width: width, height: height)
-                .foregroundColor(CC(.white))
-                .cornerRadius(rectangleRadius)
-                .shadow(radius: shadowRadius, x: shadowRadius, y: shadowRadius)
-            ZStack {
-                Circle()
-                    .foregroundColor(CC(.white))
-                    .frame(width: width * circleRatio)
-                    .shadow(radius: shadowRadius, x:shadowRadius, y:shadowRadius)
-                Rectangle()
-                    .frame(width: width * circleRatio * 2, height: width * circleRatio)
-                    .offset(y:-width * circleRatio * 0.5)
-                    .foregroundColor(CC(.white))
-            }
-            .offset(y: height*0.5)
-        }
-    }
-}
-
 struct InputContainerView: View {
     let height: Double
     let width: Double
@@ -45,7 +14,6 @@ struct InputContainerView: View {
     
     var body: some View {
         ZStack {
-            ContainerView(height: height, width: width)
             VStack {
                 HStack {
                     Spacer()
@@ -59,11 +27,6 @@ struct InputContainerView: View {
                     }
                 }
                 .padding()
-                Spacer()
-            }
-            .frame(width: width, height: height)
-            
-            VStack {
                 TextField("Type a name", text: $vm.myName)
                     .autocorrectionDisabled(true)
                     .foregroundColor(CC(.fontGrey))
@@ -71,14 +34,10 @@ struct InputContainerView: View {
                     .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
                     .padding()
                 
-                HStack {
-                    Toggle("Improve accuracy with localization", isOn: $vm.isLocalized.animation())
-                        .fontWeight(.light)
-                        .foregroundColor(CC(.fontGrey))
-                }
-                .padding(.top)
-                .padding(.horizontal)
-                
+                Toggle("Improve accuracy with localization", isOn: $vm.isLocalized.animation())
+                    .fontWeight(.light)
+                    .foregroundColor(CC(.fontGrey))
+                    .padding()
                 if vm.isLocalized {
                     HStack {
                         MainTool.getSafeImage(named: "\(vm.countryCode.lowercased()).png")
@@ -94,11 +53,20 @@ struct InputContainerView: View {
                     .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
                     .padding(.horizontal)
                 }
+                Spacer()
             }
+            .frame(width: width, height: height)
+            .background(CC(.white))
+            .cornerRadius(18)
+            .shadow(radius: 3, x: 3, y: 3)
             
             NextButton(containerWidth: width)
+                .background(Rectangle().size(width: width*0.18+30, height:width*0.09+13).fill(CC(.white)).offset(x:-11, y: -13))
+                .padding(10)
+                .background(Circle().fill(CC(.white)).shadow(radius: 3, x: 3, y: 3))
                 .offset(y: height*0.5)
                 .environmentObject(vm)
+                
         }
         .frame(width: width, height: height*1.5)
     }
@@ -111,8 +79,8 @@ struct OutputContainerView: View {
 
     var body: some View {
         ZStack {
-            ContainerView(height: height, width: width)
             VStack {
+                Spacer()
                 if vm.isValidData {
                     Text("\(vm.myAge)")
                         .font(.largeTitle)
@@ -139,10 +107,18 @@ struct OutputContainerView: View {
                     .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
                     .padding(.horizontal)
                 }
+                Spacer()
             }
+            .frame(width: width, height: height)
+            .background(CC(.white))
+            .cornerRadius(18)
+            .shadow(radius: 3, x: 3, y: 3)
             
             
             OKButton(containerWidth: width)
+                .background(Rectangle().size(width: width*0.18+30, height:width*0.09+13).fill(CC(.white)).offset(x:-11, y: -13))
+                .padding(10)
+                .background(Circle().fill(CC(.white)).shadow(radius: 3, x: 3, y: 3))
                 .offset(y: height*0.5)
                 .environmentObject(vm)
         }
@@ -157,25 +133,36 @@ struct HistoryContainerView: View {
 
     var body: some View {
         ZStack {
-            ContainerView(height: height, width: width)
-            if (vm.dataHistory.isEmpty) {
-                Text("There is no history")
-                    .font(.title)
-                    .foregroundColor(CC(.fontGrey))
-            } else {
-                List {
-                    ForEach(vm.dataHistory) {
-                        CardView(result: $0)
-                            .padding()
+            VStack {
+                if (vm.dataHistory.isEmpty) {
+                    Spacer()
+                    Text("There is no history")
+                        .font(.title)
+                        .foregroundColor(CC(.fontGrey))
+                    Spacer()
+                } else {
+                    List {
+                        ForEach(vm.dataHistory) {
+                            CardView(result: $0)
+                                .padding()
+                        }
+                        .onDelete { offset in
+                            vm.deleteItemFromHistory(at: offset)
+                        }
                     }
-                    .onDelete { offset in
-                        vm.deleteItemFromHistory(at: offset)
-                    }
+                    .scrollContentBackground(.hidden)
+                    .frame(height: height * 0.9)
                 }
-                .scrollContentBackground(.hidden)
-                .frame(height: height * 0.9)
             }
+            .frame(width: width, height: height)
+            .background(CC(.white))
+            .cornerRadius(18)
+            .shadow(radius: 3, x: 3, y: 3)
+            
             OKButton2(containerWidth: width)
+                .background(Rectangle().size(width: width*0.18+30, height:width*0.09+13).fill(CC(.white)).offset(x:-11, y: -13))
+                .padding(10)
+                .background(Circle().fill(CC(.white)).shadow(radius: 3, x: 3, y: 3))
                 .offset(y: height*0.5)
                 .environmentObject(vm)
         }

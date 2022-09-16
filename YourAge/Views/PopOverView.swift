@@ -23,7 +23,7 @@ struct PopOverView: View {
                     Spacer()
                 }
                 
-                OutputContainerView(height: geo.size.height*0.4, width: geo.size.width*0.9)
+                OutputContainerView(height: geo.size.height*0.45, width: geo.size.width*0.9)
                     .environmentObject(vm)
             }
         }

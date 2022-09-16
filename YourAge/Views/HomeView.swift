@@ -22,7 +22,7 @@ struct HomeView: View {
                         .frame(height: geo.size.height*0.4)
                     CC(.backgroundGrey)
                 }
-                InputContainerView(height: geo.size.height*0.4, width: geo.size.width*0.9)
+                InputContainerView(height: geo.size.height*0.45, width: geo.size.width*0.9)
                     .environmentObject(vm)
             }
         }

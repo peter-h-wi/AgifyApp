@@ -17,11 +17,11 @@ struct CardView: View {
                     .font(.headline)
                     .foregroundColor(CC(.yellow))
                 HStack {
-                    Text(MainTool.countryName(countryCode: result.country) ?? "Unknown")
                     MainTool.getSafeImage(named: "\(result.country.lowercased()).png")
                         .resizable()
                         .scaledToFit()
-                        .frame(height: 15)
+                        .frame(width: 30, height: 15)
+                    Text(MainTool.countryName(countryCode: result.country) ?? "Unknown")
                 }
                 .font(.subheadline)
                 .foregroundColor(CC(.fontGrey))
