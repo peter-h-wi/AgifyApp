@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 struct MainModel: Codable {
     let name: String
@@ -18,4 +19,24 @@ struct MainModelLocal: Codable {
     let age: Int
     let count: Int
     let country_id: String
+}
+
+struct ResultModel: Identifiable {
+    let modelData : ModelData
+    
+    var id: NSManagedObjectID {
+        return modelData.objectID
+    }
+    
+    var name: String {
+        return modelData.name ?? ""
+    }
+    
+    var age: Int {
+        return Int(modelData.age)
+    }
+    
+    var country: String {
+        return modelData.country ?? "US"
+    }
 }

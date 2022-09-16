@@ -20,6 +20,10 @@
 		FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */; };
 		FE8F0FA928D40A7200DA8EC6 /* PickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */; };
 		FE8F0FAC28D4254C00DA8EC6 /* MainTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FAB28D4254C00DA8EC6 /* MainTool.swift */; };
+		FE8F0FB828D4559900DA8EC6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FB628D4559900DA8EC6 /* DataModel.xcdatamodeld */; };
+		FE8F0FBA28D4564200DA8EC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FB928D4564200DA8EC6 /* CoreDataManager.swift */; };
+		FE8F0FBC28D4583500DA8EC6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FBB28D4583500DA8EC6 /* CardView.swift */; };
+		FE8F0FBE28D4585F00DA8EC6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FBD28D4585F00DA8EC6 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,10 @@
 		FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
 		FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViews.swift; sourceTree = "<group>"; };
 		FE8F0FAB28D4254C00DA8EC6 /* MainTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTool.swift; sourceTree = "<group>"; };
+		FE8F0FB728D4559900DA8EC6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FE8F0FB928D4564200DA8EC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE8F0FBB28D4583500DA8EC6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		FE8F0FBD28D4585F00DA8EC6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +85,7 @@
 				FE8F0F7728D0F63A00DA8EC6 /* YourAgeApp.swift */,
 				FE8F0F7B28D0F63B00DA8EC6 /* Assets.xcassets */,
 				FE8F0F7D28D0F63B00DA8EC6 /* Preview Content */,
+				FE8F0FB628D4559900DA8EC6 /* DataModel.xcdatamodeld */,
 			);
 			path = YourAge;
 			sourceTree = "<group>";
@@ -98,6 +107,8 @@
 				FE8F0F9428D2C49100DA8EC6 /* ContainerViews.swift */,
 				FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */,
 				FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */,
+				FE8F0FBB28D4583500DA8EC6 /* CardView.swift */,
+				FE8F0FBD28D4585F00DA8EC6 /* HistoryView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				FE8F0FAB28D4254C00DA8EC6 /* MainTool.swift */,
+				FE8F0FB928D4564200DA8EC6 /* CoreDataManager.swift */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -204,15 +216,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8F0FBC28D4583500DA8EC6 /* CardView.swift in Sources */,
 				FE8F0F9728D2C68C00DA8EC6 /* IntroMessageView.swift in Sources */,
 				FE8F0F8D28D231B200DA8EC6 /* MainModel.swift in Sources */,
 				FE8F0F9528D2C49100DA8EC6 /* ContainerViews.swift in Sources */,
 				FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */,
 				FE8F0F9328D264D000DA8EC6 /* PopOverView.swift in Sources */,
 				FE8F0FAC28D4254C00DA8EC6 /* MainTool.swift in Sources */,
+				FE8F0FBE28D4585F00DA8EC6 /* HistoryView.swift in Sources */,
 				FE8F0FA928D40A7200DA8EC6 /* PickerViews.swift in Sources */,
+				FE8F0FBA28D4564200DA8EC6 /* CoreDataManager.swift in Sources */,
 				FE8F0F9128D2503400DA8EC6 /* HomeView.swift in Sources */,
 				FE8F0F7828D0F63A00DA8EC6 /* YourAgeApp.swift in Sources */,
+				FE8F0FB828D4559900DA8EC6 /* DataModel.xcdatamodeld in Sources */,
 				FE8F0F9A28D2C6FE00DA8EC6 /* Colors.swift in Sources */,
 				FE8F0F8928D0FBEE00DA8EC6 /* MainViewModel.swift in Sources */,
 			);
@@ -415,6 +431,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FE8F0FB628D4559900DA8EC6 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE8F0FB728D4559900DA8EC6 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FE8F0FB728D4559900DA8EC6 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE8F0F6C28D0F63A00DA8EC6 /* Project object */;
 }

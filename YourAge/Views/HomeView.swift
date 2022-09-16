@@ -30,6 +30,9 @@ struct HomeView: View {
         .popover(isPresented: $vm.showResult) {
             PopOverView().environmentObject(vm)
         }
+        .popover(isPresented: $vm.showHistory) {
+            HistoryView().environmentObject(vm)
+        }
         
     }
 }

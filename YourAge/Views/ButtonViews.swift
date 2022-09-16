@@ -54,3 +54,21 @@ struct OKButton: View {
         }
     }
 }
+
+struct OKButton2: View {
+    let containerWidth: Double
+    @EnvironmentObject private var vm: MainViewModel
+    
+    var body: some View {
+        Button {
+            vm.showHistory.toggle()
+        } label: {
+            ZStack() {
+                HalfCircleFrameView(containerWidth: containerWidth)
+                Text("OK")
+                    .font(.title)
+                    .foregroundColor(CC(.white))
+            }
+        }
+    }
+}

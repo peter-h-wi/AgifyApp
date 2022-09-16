@@ -14,6 +14,8 @@ class MainViewModel: ObservableObject {
     @Published var isValidData: Bool
     @Published var countryCode: String
     @Published var isLocalized: Bool
+    @Published var showHistory: Bool
+    @Published var dataHistory: [ResultModel] = []
     
     init() {
         myName = ""
@@ -21,6 +23,7 @@ class MainViewModel: ObservableObject {
         showResult = false
         isValidData = false
         isLocalized = false
+        showHistory = false
         countryCode = Locale.current.language.region?.identifier ?? "US"
     }
     
@@ -44,6 +47,7 @@ class MainViewModel: ObservableObject {
                         self.myAge = decodedResponse.age
                         self.countryCode = decodedResponse.country_id
                         self.isValidData = true
+                        addItemToHistory()
                     } else {
                         self.isValidData = false
                     }
@@ -52,7 +56,8 @@ class MainViewModel: ObservableObject {
                         self.myName = decodedResponse.name
                         self.myAge = decodedResponse.age
                         self.isValidData = true
-                        self.countryCode = Locale.current.language.region?.identifier ?? "US"
+                        self.countryCode = "World"
+                        addItemToHistory()
                     } else {
                         self.isValidData = false
                     }
@@ -60,5 +65,35 @@ class MainViewModel: ObservableObject {
             }
         }
         .resume()
+    }
+    
+    func retrieveHistory() {
+        dataHistory = CoreDataManager.shared.getAllItems().map(ResultModel.init)
+        dataHistory.reverse()
+    }
+    
+    func addItemToHistory() {
+        let hasOne = dataHistory.contains { model in
+            return model.name == myName && model.age == myAge && model.country == countryCode
+        }
+        if hasOne {
+            print("already have the same one")
+            return
+        }
+        let item = ModelData(context: CoreDataManager.shared.viewContext)
+        item.country = countryCode
+        item.name = myName
+        item.age = Int16(myAge)
+        CoreDataManager.shared.save()
+        print("Add Done")
+    }
+    
+    func deleteItemFromHistory(at offsets: IndexSet) {
+        for index in offsets {
+            let item = dataHistory[index]
+            CoreDataManager.shared.delete(entry: item.modelData)
+        }
+        retrieveHistory()
+        print("Delete Done")
     }
 }
