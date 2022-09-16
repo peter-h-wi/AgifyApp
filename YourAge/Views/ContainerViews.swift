@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct ContainerView: View {
     let height: Double
     let width: Double
@@ -66,7 +65,7 @@ struct InputContainerView: View {
                 
                 if vm.isLocalized {
                     HStack {
-                        getSafeImage(named: "\(vm.countryCode.lowercased()).png")
+                        MainTool.getSafeImage(named: "\(vm.countryCode.lowercased()).png")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 30)
@@ -86,11 +85,6 @@ struct InputContainerView: View {
                 .environmentObject(vm)
         }
         .frame(width: width, height: height*1.5)
-    }
-    
-    func getSafeImage(named: String) -> Image {
-       let uiImage =  (UIImage(named: named) ?? UIImage(named: "us.png"))!
-       return Image(uiImage: uiImage)
     }
 }
 
@@ -117,12 +111,12 @@ struct OutputContainerView: View {
                 }
                 if vm.isLocalized {
                     HStack {
-                        getSafeImage(named: "\(vm.countryCode.lowercased()).png")
+                        MainTool.getSafeImage(named: "\(vm.countryCode.lowercased()).png")
                             .resizable()
                             .scaledToFit()
                             .frame(height: 30)
                         Spacer()
-                        Text(countryName(countryCode: vm.countryCode) ?? "Unknown")
+                        Text(MainTool.countryName(countryCode: vm.countryCode) ?? "Unknown")
                             .foregroundColor(CC(.fontGrey))
                     }
                     .padding(.horizontal, 50)
@@ -138,16 +132,5 @@ struct OutputContainerView: View {
                 .environmentObject(vm)
         }
         .frame(width: width, height: height*1.5)
-        
-    }
-    
-    func getSafeImage(named: String) -> Image {
-       let uiImage =  (UIImage(named: named) ?? UIImage(named: "us.png"))!
-       return Image(uiImage: uiImage)
-    }
-    
-    func countryName(countryCode: String) -> String? {
-        let current = Locale(identifier: "en_US")
-        return current.localizedString(forRegionCode: countryCode)
     }
 }
