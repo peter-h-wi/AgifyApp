@@ -18,6 +18,10 @@
 		FE8F0F9728D2C68C00DA8EC6 /* IntroMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */; };
 		FE8F0F9A28D2C6FE00DA8EC6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9928D2C6FE00DA8EC6 /* Colors.swift */; };
 		FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */; };
+		FE8F0F9F28D3980000DA8EC6 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9D28D3980000DA8EC6 /* DataModel.xcdatamodeld */; };
+		FE8F0FA228D3991200DA8EC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA128D3991200DA8EC6 /* CoreDataManager.swift */; };
+		FE8F0FA428D39A5D00DA8EC6 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA328D39A5D00DA8EC6 /* ResultModel.swift */; };
+		FE8F0FA628D39B9A00DA8EC6 /* MainViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA528D39B9A00DA8EC6 /* MainViewModel2.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +37,10 @@
 		FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroMessageView.swift; sourceTree = "<group>"; };
 		FE8F0F9928D2C6FE00DA8EC6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
+		FE8F0F9E28D3980000DA8EC6 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		FE8F0FA128D3991200DA8EC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		FE8F0FA328D39A5D00DA8EC6 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
+		FE8F0FA528D39B9A00DA8EC6 /* MainViewModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel2.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +73,8 @@
 		FE8F0F7628D0F63A00DA8EC6 /* YourAge */ = {
 			isa = PBXGroup;
 			children = (
+				FE8F0FA028D3990100DA8EC6 /* Services */,
+				FE8F0F9D28D3980000DA8EC6 /* DataModel.xcdatamodeld */,
 				FE8F0F9828D2C6C200DA8EC6 /* Enums */,
 				FE8F0F8728D0FBD200DA8EC6 /* ViewModels */,
 				FE8F0F8628D0FBC300DA8EC6 /* Models */,
@@ -100,6 +110,7 @@
 			isa = PBXGroup;
 			children = (
 				FE8F0F8C28D231B200DA8EC6 /* MainModel.swift */,
+				FE8F0FA328D39A5D00DA8EC6 /* ResultModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -108,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				FE8F0F8828D0FBEE00DA8EC6 /* MainViewModel.swift */,
+				FE8F0FA528D39B9A00DA8EC6 /* MainViewModel2.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -118,6 +130,14 @@
 				FE8F0F9928D2C6FE00DA8EC6 /* Colors.swift */,
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		FE8F0FA028D3990100DA8EC6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FE8F0FA128D3991200DA8EC6 /* CoreDataManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,14 +211,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				FE8F0F9728D2C68C00DA8EC6 /* IntroMessageView.swift in Sources */,
+				FE8F0F9F28D3980000DA8EC6 /* DataModel.xcdatamodeld in Sources */,
+				FE8F0FA628D39B9A00DA8EC6 /* MainViewModel2.swift in Sources */,
 				FE8F0F8D28D231B200DA8EC6 /* MainModel.swift in Sources */,
 				FE8F0F9528D2C49100DA8EC6 /* ContainerViews.swift in Sources */,
 				FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */,
 				FE8F0F9328D264D000DA8EC6 /* PopOverView.swift in Sources */,
 				FE8F0F9128D2503400DA8EC6 /* HomeView.swift in Sources */,
 				FE8F0F7828D0F63A00DA8EC6 /* YourAgeApp.swift in Sources */,
+				FE8F0FA428D39A5D00DA8EC6 /* ResultModel.swift in Sources */,
 				FE8F0F9A28D2C6FE00DA8EC6 /* Colors.swift in Sources */,
 				FE8F0F8928D0FBEE00DA8EC6 /* MainViewModel.swift in Sources */,
+				FE8F0FA228D3991200DA8EC6 /* CoreDataManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +423,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FE8F0F9D28D3980000DA8EC6 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FE8F0F9E28D3980000DA8EC6 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = FE8F0F9E28D3980000DA8EC6 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = FE8F0F6C28D0F63A00DA8EC6 /* Project object */;
 }
