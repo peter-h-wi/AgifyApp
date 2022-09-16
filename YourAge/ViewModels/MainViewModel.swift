@@ -58,6 +58,8 @@ class MainViewModel: ObservableObject {
                         self.isValidData = true
                         self.countryCode = "World"
                         addItemToHistory()
+                        // reset the code to current location
+                        self.countryCode = Locale.current.language.region?.identifier ?? "US"
                     } else {
                         self.isValidData = false
                     }
@@ -85,7 +87,7 @@ class MainViewModel: ObservableObject {
         item.name = myName
         item.age = Int16(myAge)
         CoreDataManager.shared.save()
-        print("Add Done")
+        retrieveHistory()
     }
     
     func deleteItemFromHistory(at offsets: IndexSet) {
