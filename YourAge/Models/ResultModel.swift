@@ -8,7 +8,7 @@
 import Foundation
 import CoreData
 
-struct ResultModel {
+struct ResultModel: Identifiable {
     let modelData : ModelData
     
     var id: NSManagedObjectID {
@@ -25,5 +25,9 @@ struct ResultModel {
     
     var count: Int {
         return Int(modelData.count)
+    }
+    
+    var country: String {
+        return modelData.country ?? "US"
     }
 }

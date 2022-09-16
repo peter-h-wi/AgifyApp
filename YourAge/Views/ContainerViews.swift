@@ -41,11 +41,28 @@ struct ContainerView: View {
 struct InputContainerView: View {
     let height: Double
     let width: Double
-    @EnvironmentObject private var vm: MainViewModel
+    @EnvironmentObject private var vm: MainViewModel2
     
     var body: some View {
         ZStack {
             ContainerView(height: height, width: width)
+            VStack {
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        vm.showHistory.toggle()
+                        vm.retrieveHistory()
+                    }) {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .foregroundColor(CC(.yellow))
+                            .font(.largeTitle)
+                    }
+                }
+                .padding()
+                Spacer()
+            }
+            .frame(width: width, height: height)
+            
             TextField("Type a name", text: $vm.myName)
                 .autocorrectionDisabled(true)
                 .foregroundColor(CC(.fontGrey))
@@ -64,7 +81,7 @@ struct InputContainerView: View {
 struct OutputContainerView: View {
     let height: Double
     let width: Double
-    @EnvironmentObject private var vm: MainViewModel
+    @EnvironmentObject private var vm: MainViewModel2
 
     var body: some View {
         ZStack {
@@ -87,5 +104,37 @@ struct OutputContainerView: View {
         }
         .frame(width: width, height: height*1.5)
         
+    }
+}
+
+struct HistoryContainerView: View {
+    let height: Double
+    let width: Double
+    @EnvironmentObject private var vm: MainViewModel2
+
+    var body: some View {
+        ZStack {
+            ContainerView(height: height, width: width)
+            if (vm.dataHistory.isEmpty) {
+                Text("There is no history")
+                    .font(.title)
+                    .foregroundColor(CC(.fontGrey))
+            } else {
+                List {
+                    ForEach(vm.dataHistory) {
+                        CardView(result: $0)
+                            .padding()
+                    }
+                    .onDelete { offset in
+                        vm.deleteItemFromHistory(at: offset)
+                    }
+                }
+                .scrollContentBackground(.hidden)
+                .frame(height: height * 0.9)
+            }
+            OKButton2(containerWidth: width)
+                .offset(y: height*0.5)
+                .environmentObject(vm)
+        }
     }
 }

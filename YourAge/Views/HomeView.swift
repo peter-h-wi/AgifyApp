@@ -10,12 +10,13 @@ import SwiftUI
 let buttonGradientColor = LinearGradient(gradient: buttonGradient, startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct HomeView: View {
-    @StateObject private var vm = MainViewModel()
+    @StateObject private var vm = MainViewModel2()
 
     var body: some View {
         GeometryReader { geo in
             ZStack {
                 backgroundGradientColor
+                
                 VStack(alignment: .leading) {
                     IntroMessageView(introMain1: "Welcome to", introMain2: "Agify,", introSub: "Predict the age of a name", height: geo.size.height*0.4*0.4)
                         .padding(.leading)
@@ -29,6 +30,9 @@ struct HomeView: View {
         .ignoresSafeArea()
         .popover(isPresented: $vm.showResult) {
             PopOverView().environmentObject(vm)
+        }
+        .popover(isPresented: $vm.showHistory) {
+            HistoryView().environmentObject(vm)
         }
         
     }

@@ -21,7 +21,7 @@ struct HalfCircleFrameView: View {
 
 struct NextButton: View {
     let containerWidth: Double
-    @EnvironmentObject private var vm: MainViewModel
+    @EnvironmentObject private var vm: MainViewModel2
     
     var body: some View {
         Button {
@@ -39,11 +39,29 @@ struct NextButton: View {
 
 struct OKButton: View {
     let containerWidth: Double
-    @EnvironmentObject private var vm: MainViewModel
+    @EnvironmentObject private var vm: MainViewModel2
     
     var body: some View {
         Button {
             vm.showResult.toggle()
+        } label: {
+            ZStack() {
+                HalfCircleFrameView(containerWidth: containerWidth)
+                Text("OK")
+                    .font(.title)
+                    .foregroundColor(CC(.white))
+            }
+        }
+    }
+}
+
+struct OKButton2: View {
+    let containerWidth: Double
+    @EnvironmentObject private var vm: MainViewModel2
+    
+    var body: some View {
+        Button {
+            vm.showHistory.toggle()
         } label: {
             ZStack() {
                 HalfCircleFrameView(containerWidth: containerWidth)

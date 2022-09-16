@@ -10,7 +10,7 @@ import SwiftUI
 let backgroundGradientColor = LinearGradient(gradient: backgroundGradient, startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct PopOverView: View {
-    @EnvironmentObject private var vm: MainViewModel
+    @EnvironmentObject private var vm: MainViewModel2
 
     var body: some View {
         GeometryReader { geo in

@@ -22,6 +22,8 @@
 		FE8F0FA228D3991200DA8EC6 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA128D3991200DA8EC6 /* CoreDataManager.swift */; };
 		FE8F0FA428D39A5D00DA8EC6 /* ResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA328D39A5D00DA8EC6 /* ResultModel.swift */; };
 		FE8F0FA628D39B9A00DA8EC6 /* MainViewModel2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA528D39B9A00DA8EC6 /* MainViewModel2.swift */; };
+		FE8F0FAE28D42FE200DA8EC6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FAD28D42FE200DA8EC6 /* CardView.swift */; };
+		FE8F0FB028D42FF100DA8EC6 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FAF28D42FF100DA8EC6 /* HistoryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +43,8 @@
 		FE8F0FA128D3991200DA8EC6 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		FE8F0FA328D39A5D00DA8EC6 /* ResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultModel.swift; sourceTree = "<group>"; };
 		FE8F0FA528D39B9A00DA8EC6 /* MainViewModel2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel2.swift; sourceTree = "<group>"; };
+		FE8F0FAD28D42FE200DA8EC6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		FE8F0FAF28D42FF100DA8EC6 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,11 @@
 			children = (
 				FE8F0F9028D2503400DA8EC6 /* HomeView.swift */,
 				FE8F0F9228D264D000DA8EC6 /* PopOverView.swift */,
+				FE8F0FAF28D42FF100DA8EC6 /* HistoryView.swift */,
 				FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */,
 				FE8F0F9428D2C49100DA8EC6 /* ContainerViews.swift */,
 				FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */,
+				FE8F0FAD28D42FE200DA8EC6 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,12 +216,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE8F0FAE28D42FE200DA8EC6 /* CardView.swift in Sources */,
 				FE8F0F9728D2C68C00DA8EC6 /* IntroMessageView.swift in Sources */,
 				FE8F0F9F28D3980000DA8EC6 /* DataModel.xcdatamodeld in Sources */,
 				FE8F0FA628D39B9A00DA8EC6 /* MainViewModel2.swift in Sources */,
 				FE8F0F8D28D231B200DA8EC6 /* MainModel.swift in Sources */,
 				FE8F0F9528D2C49100DA8EC6 /* ContainerViews.swift in Sources */,
 				FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */,
+				FE8F0FB028D42FF100DA8EC6 /* HistoryView.swift in Sources */,
 				FE8F0F9328D264D000DA8EC6 /* PopOverView.swift in Sources */,
 				FE8F0F9128D2503400DA8EC6 /* HomeView.swift in Sources */,
 				FE8F0F7828D0F63A00DA8EC6 /* YourAgeApp.swift in Sources */,
