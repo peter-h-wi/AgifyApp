@@ -10,7 +10,7 @@ import SwiftUI
 let buttonGradientColor = LinearGradient(gradient: buttonGradient, startPoint: .topLeading, endPoint: .bottomTrailing)
 
 struct HomeView: View {
-    @StateObject private var vm = MainViewModel2()
+    @StateObject private var vm = MainViewModel()
 
     var body: some View {
         GeometryReader { geo in

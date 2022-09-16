@@ -41,7 +41,7 @@ struct ContainerView: View {
 struct InputContainerView: View {
     let height: Double
     let width: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         ZStack {
@@ -81,7 +81,7 @@ struct InputContainerView: View {
 struct OutputContainerView: View {
     let height: Double
     let width: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
 
     var body: some View {
         ZStack {
@@ -110,7 +110,7 @@ struct OutputContainerView: View {
 struct HistoryContainerView: View {
     let height: Double
     let width: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
 
     var body: some View {
         ZStack {

@@ -21,7 +21,7 @@ struct HalfCircleFrameView: View {
 
 struct NextButton: View {
     let containerWidth: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         Button {
@@ -39,7 +39,7 @@ struct NextButton: View {
 
 struct OKButton: View {
     let containerWidth: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         Button {
@@ -57,7 +57,7 @@ struct OKButton: View {
 
 struct OKButton2: View {
     let containerWidth: Double
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         Button {

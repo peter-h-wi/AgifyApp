@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @EnvironmentObject private var vm: MainViewModel2
+    @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         GeometryReader { geo in
@@ -29,6 +29,6 @@ struct HistoryView: View {
 
 struct HistoryView_Previews: PreviewProvider {
     static var previews: some View {
-        HistoryView().environmentObject(MainViewModel2())
+        HistoryView().environmentObject(MainViewModel())
     }
 }
