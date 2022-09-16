@@ -18,6 +18,7 @@
 		FE8F0F9728D2C68C00DA8EC6 /* IntroMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */; };
 		FE8F0F9A28D2C6FE00DA8EC6 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9928D2C6FE00DA8EC6 /* Colors.swift */; };
 		FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */; };
+		FE8F0FA928D40A7200DA8EC6 /* PickerViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroMessageView.swift; sourceTree = "<group>"; };
 		FE8F0F9928D2C6FE00DA8EC6 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonViews.swift; sourceTree = "<group>"; };
+		FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerViews.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 				FE8F0F9628D2C68C00DA8EC6 /* IntroMessageView.swift */,
 				FE8F0F9428D2C49100DA8EC6 /* ContainerViews.swift */,
 				FE8F0F9B28D2CC7C00DA8EC6 /* ButtonViews.swift */,
+				FE8F0FA828D40A7200DA8EC6 /* PickerViews.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				FE8F0F9528D2C49100DA8EC6 /* ContainerViews.swift in Sources */,
 				FE8F0F9C28D2CC7C00DA8EC6 /* ButtonViews.swift in Sources */,
 				FE8F0F9328D264D000DA8EC6 /* PopOverView.swift in Sources */,
+				FE8F0FA928D40A7200DA8EC6 /* PickerViews.swift in Sources */,
 				FE8F0F9128D2503400DA8EC6 /* HomeView.swift in Sources */,
 				FE8F0F7828D0F63A00DA8EC6 /* YourAgeApp.swift in Sources */,
 				FE8F0F9A28D2C6FE00DA8EC6 /* Colors.swift in Sources */,

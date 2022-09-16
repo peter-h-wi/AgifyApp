@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+
 struct ContainerView: View {
     let height: Double
     let width: Double
@@ -41,23 +42,55 @@ struct ContainerView: View {
 struct InputContainerView: View {
     let height: Double
     let width: Double
+    @State var countryId: String = ""
     @EnvironmentObject private var vm: MainViewModel
     
     var body: some View {
         ZStack {
             ContainerView(height: height, width: width)
-            TextField("Type a name", text: $vm.myName)
-                .autocorrectionDisabled(true)
-                .foregroundColor(CC(.fontGrey))
-                .padding(13)
-                .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey))
-                )
+            VStack {
+                TextField("Type a name", text: $vm.myName)
+                    .autocorrectionDisabled(true)
+                    .foregroundColor(CC(.fontGrey))
+                    .padding(13)
+                    .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
+                    .padding()
+                
+                HStack {
+                    Toggle("Improve accuracy with localization", isOn: $vm.isLocalized.animation())
+                        .fontWeight(.light)
+                        .foregroundColor(CC(.fontGrey))
+                }
+                .padding(.top)
                 .padding(.horizontal)
+                
+                if vm.isLocalized {
+                    HStack {
+                        getSafeImage(named: "\(vm.countryCode.lowercased()).png")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                        Spacer()
+                        CountryPicker().environmentObject(vm)
+                            .foregroundColor(CC(.fontGrey))
+                    }
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 6)
+                    .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
+                    .padding(.horizontal)
+                }
+            }
+            
             NextButton(containerWidth: width)
                 .offset(y: height*0.5)
                 .environmentObject(vm)
         }
         .frame(width: width, height: height*1.5)
+    }
+    
+    func getSafeImage(named: String) -> Image {
+       let uiImage =  (UIImage(named: named) ?? UIImage(named: "us.png"))!
+       return Image(uiImage: uiImage)
     }
 }
 
@@ -65,21 +98,40 @@ struct OutputContainerView: View {
     let height: Double
     let width: Double
     @EnvironmentObject private var vm: MainViewModel
+    @Environment(\.locale) var locale
 
     var body: some View {
         ZStack {
             ContainerView(height: height, width: width)
-            if vm.isValidData {
-                Text("\(vm.myAge)")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(CC(.fontGrey))
-            } else {
-                Text("Unknown 🧐")
-                    .font(.largeTitle)
-                    .fontWeight(.bold)
-                    .foregroundColor(CC(.fontGrey))
+            VStack {
+                if vm.isValidData {
+                    Text("\(vm.myAge)")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(CC(.fontGrey))
+                } else {
+                    Text("Unknown 🧐")
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .foregroundColor(CC(.fontGrey))
+                }
+                if vm.isLocalized {
+                    HStack {
+                        getSafeImage(named: "\(vm.countryCode.lowercased()).png")
+                            .resizable()
+                            .scaledToFit()
+                            .frame(height: 30)
+                        Spacer()
+                        Text(countryName(countryCode: vm.countryCode) ?? "Unknown")
+                            .foregroundColor(CC(.fontGrey))
+                    }
+                    .padding(.horizontal, 50)
+                    .padding(.vertical, 6)
+                    .overlay(RoundedRectangle(cornerRadius: 25).stroke().foregroundColor(CC(.lineGrey)))
+                    .padding(.horizontal)
+                }
             }
+            
             
             OKButton(containerWidth: width)
                 .offset(y: height*0.5)
@@ -87,5 +139,15 @@ struct OutputContainerView: View {
         }
         .frame(width: width, height: height*1.5)
         
+    }
+    
+    func getSafeImage(named: String) -> Image {
+       let uiImage =  (UIImage(named: named) ?? UIImage(named: "us.png"))!
+       return Image(uiImage: uiImage)
+    }
+    
+    func countryName(countryCode: String) -> String? {
+        let current = Locale(identifier: "en_US")
+        return current.localizedString(forRegionCode: countryCode)
     }
 }
